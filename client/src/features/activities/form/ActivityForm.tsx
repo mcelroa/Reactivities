@@ -24,6 +24,7 @@ export default function ActivityForm() {
    const { updateActivity, createActivity, activity, isLoadingActivity } =
       useActivities(id);
 
+   // useEffect comment
    useEffect(() => {
       if (activity)
          reset({
