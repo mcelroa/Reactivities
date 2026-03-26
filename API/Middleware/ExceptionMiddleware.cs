@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Middleware;
 
-public class ExceptionMiddleware(ILogger<ExceptionMiddleware> logger, IHostEnvironment env) 
+public class ExceptionMiddleware(ILogger<ExceptionMiddleware> logger, IHostEnvironment env)
     : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
@@ -34,8 +34,8 @@ public class ExceptionMiddleware(ILogger<ExceptionMiddleware> logger, IHostEnvir
         var response = env.IsDevelopment()
             ? new AppException(context.Response.StatusCode, ex.Message, ex.StackTrace)
             : new AppException(context.Response.StatusCode, ex.Message, null);
-        
-        var options = new JsonSerializerOptions{PropertyNamingPolicy = JsonNamingPolicy.CamelCase};
+
+        var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
         var json = JsonSerializer.Serialize(response, options);
 

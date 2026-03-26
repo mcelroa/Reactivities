@@ -23,7 +23,7 @@ public class EditActivity
                 .FindAsync([request.ActivityDto.Id], cancellationToken);
 
             if (activity == null) return Result<Unit>.Failure("Activity not found", 404);
-            
+
             mapper.Map(request.ActivityDto, activity);
 
             var result = await context.SaveChangesAsync(cancellationToken) > 0;

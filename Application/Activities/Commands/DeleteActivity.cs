@@ -17,9 +17,9 @@ public class DeleteActivity
         {
             var activity = await context.Activities
                 .FindAsync([request.Id], cancellationToken);
-            
-            if (activity == null) return Result<Unit>.Failure("Activity not found", 404);       
-            
+
+            if (activity == null) return Result<Unit>.Failure("Activity not found", 404);
+
             context.Remove(activity);
 
             var result = await context.SaveChangesAsync(cancellationToken) > 0;
