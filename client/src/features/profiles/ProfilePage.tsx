@@ -6,14 +6,14 @@ import { useParams } from "react-router";
 
 export default function ProfilePage() {
    const { id } = useParams();
-   const { profile, loadingProfile } = useProfile(id);
+   const { loadingProfile } = useProfile(id);
 
    if (loadingProfile) return <Typography>Loading profile...</Typography>;
 
    return (
       <Grid container>
          <Grid size={12}>
-            <ProfileHeader profile={profile} />
+            <ProfileHeader />
             <ProfileContent />
          </Grid>
       </Grid>
