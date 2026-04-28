@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import {
    activitySchema,
    type ActivitySchema,
+   type ActivityFormInput,
 } from "../../../lib/schemas/activitySchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import TextInput from "../../../app/shared/components/TextInput";
@@ -15,7 +16,11 @@ import DateTimeInput from "../../../app/shared/components/DateTimeInput";
 import LocationInput from "../../../app/shared/components/LocationInput";
 
 export default function ActivityForm() {
-   const { control, reset, handleSubmit } = useForm<ActivitySchema>({
+   const { control, reset, handleSubmit } = useForm<
+      ActivityFormInput,
+      unknown,
+      ActivitySchema
+   >({
       mode: "onTouched",
       resolver: zodResolver(activitySchema),
    });
