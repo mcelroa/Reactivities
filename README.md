@@ -1,7 +1,5 @@
 # Reactivities — Comprehensive Project Knowledge Document
 
-> Generated: 2026-04-28
-
 ---
 
 ## Table of Contents
